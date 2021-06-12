@@ -15,9 +15,9 @@ SECRET_KEY = 'django-insecure-=c$0dy$_c4+qt5649$z89!#!bp^(25z9n0tokw(g#^-p)93sfr
 # SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','dcsbeta.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','dcsbetav1.herokuapp.com']
 
 
 MESSAGE_TAGS = {
@@ -125,7 +125,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'django_project/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'server_static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
