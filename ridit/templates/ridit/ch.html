@@ -1,0 +1,22 @@
+
+{% extends "ridit/base1.html" %}
+{% load static %}
+  {% block content %}
+    <div class="container mt-5">
+      <div class="row mt-5">
+        <div class="col-12 mt-5 text-center">
+          <h1>Thanks for Reaching Out to us!!</h1>
+          <br>
+          <div>
+            <p class="text-primary" style="font-size: 20px;font-family: helvetica;font-weight:bold;">
+            You have to pay : Rs.{{total}}</p>
+          </div>
+          <h6>Our Team will contact you soon for further updates.</h6>
+
+          <a  href="{% url 'ridit-home' %}" class='btn btn-lg btn-outline-primary'>
+            Back to Main Page
+          </a>
+        </div>
+      </div>
+    </div>
+  {% endblock content %}

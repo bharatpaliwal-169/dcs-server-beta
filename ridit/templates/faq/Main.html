@@ -1,0 +1,51 @@
+{% extends "ridit/base.html" %}
+{% load static %}
+  {% block content %}
+    <div class="container mt-5">
+      <div class="row mt-5">
+        <div class="col-12 mt-5 text-center"><br/><br/>
+          <h1 class="post-title">FAQs - Ridit</h1> 
+          
+          <div class="text-muted">
+            <h5>Having queries about our services;
+            Explore various FAQs and contact us directly when needed.</h5>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-7 col-sm-3 mt-5">
+              <a href="{% url 'driveFAQ' %}">
+                <div class="card card-faq text-center text-primary">
+                  <h3 class="a-faq">Driving School FAQs</h3>
+                </div>
+              </a>
+            </div>
+            <div class="col-5 col-sm-3 mt-5">
+              <a href="{% url 'pucFAQ' %}">
+                <div class="card card-faq text-center text-primary">
+                  <h3 class="a-faq">PUC FAQs</h3>
+                </div>
+              </a>
+            </div>
+            
+            <div class="col-5 col-sm-3 mt-5">
+              <a href="{% url 'chauffeurFAQ' %}">
+                <div class="card card-faq text-center text-primary">
+                  <h3 class="a-faq">Chauffeur FAQs</h3>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-7 col-sm-3 mt-5">
+              <a href="{% url 'licenseFAQ' %}">
+                <div class="card card-faq text-center text-primary">
+                  <h3 class="a-faq">Getting Licence FAQs</h3>
+                </div>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock content %}

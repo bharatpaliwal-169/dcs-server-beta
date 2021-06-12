@@ -1,0 +1,29 @@
+{% extends "ridit/base.html" %}
+{% load static %}
+  {% block content %}
+    <div class="container mt-5">
+      <div class="row mt-5">
+        <div class="col-12 col-md-6 mt-sm-5 mb-5 text-center">
+          <br/><br/><br/><br/><br/>
+          <span style="color:#6495ED;font-size: 45px;font-weight: bold;">
+            Coming Soon !!
+          </span><br/>
+          <div>
+            <a  href="{% url 'ridit-home' %}" class='btn btn-md btn-outline-primary mt-5 mb-4 ctm-btn'>
+              Back to Main Page
+            </a>
+          </div>
+          
+          <div class="text-muted mt-4 mb-5">
+            <span style="color:#1E90FF;font-size: 1.5rem;">If you have some queries, Please feel free to reach out to us.
+            <p>Contact us -> +91-8519082411</p></span>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mt-sm-5 mb-5">
+          <img src="{% static 'images/hero-poster.svg' %}" alt="poster" class="mt-sm-5 img-fluid img-responsive" />
+        </div>
+
+      </div>
+    </div>
+  {% endblock content %}

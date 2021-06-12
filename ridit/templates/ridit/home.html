@@ -1,0 +1,336 @@
+{% extends "ridit/base.html" %}
+{% load static %}
+{% block content %}
+    
+    <!-- landing page -->
+    <div class="container-fluid d-none d-md-block  " id="home">
+      <div class="row align-items-center">
+        
+        <div class="col-12 col-md-5 offset-md-1 mt-sm-5">
+          <h1 class=' post-title mt-4 mb-5'> DCS - Driven Chauffeurs Service </h1>
+          <h4 >We make your drive comfortable,memorable and pocket-friendly.</h4>
+        </div>
+  
+        <div class="col-12 col-md-6 mt-sm-5 mb-5">
+          <img src="{% static 'images/hero-poster.svg' %}" alt="poster" class="mt-sm-5 img-fluid img-responsive" />
+        </div>
+      </div>
+    </div>
+  
+    <!-- mobile landing -->
+    <div class="container-fluid  d-xs-block d-sm-block d-md-none " id="home">
+      <div class="row align-items-center">
+        
+        <div class="col-12 col-md-6 mt-5 mb-3">
+          <img src="{% static 'images/hero-poster.svg' %}" alt="poster" class="mt-sm-5 img-fluid img-responsive">
+        </div>
+  
+        <div class="col-12 col-md-5 offset-md-1 mt-sm-5 mb-5">
+          <h1 class=' post-title mt-4 mb-5'> Driven Chauffeurs Service </h1>
+          <h4 >we make your drive comfortable,memorable and pocket-friendly.</h4>
+        </div>
+  
+      </div>
+    </div>
+  
+  
+    <!-- single page application || single container application -->
+    <div class="container-fluid" >
+  
+      <div class="row text-center  align-items-center justify-content-center" id='about'>
+        <div class="col-12 mt-4 mb-4">
+          <h1 class='about-head mb-2 mt-5' >
+            About Us
+          </h1>
+            
+        </div>
+  
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <div class="col-12">
+              <h2>
+                We work with top rental vehicles providers
+              </h2>
+            </div>
+            
+            <div class="col-6 mt-3 mb-3"> 
+                  <img class="img-fluid img-responsive about-imgs  m-2" src="{% static 'images/cash-payment.svg' %}" alt="cash" />
+                  <h5>Affordable</h5>
+            </div>
+            <div class="col-6 mt-3 mb-3"> 
+                  <img class="img-fluid img-responsive about-imgs m-2" src="{% static 'images/shield.svg' %}" alt="shield" />
+                  <h5>Reliable</h5>
+              </div>
+              <div class="col-6 mt-3 mb-3">
+                  <img class="img-fluid img-responsive about-imgs m-2" src="{% static 'images/clock.svg' %}" alt="clock" />
+                  <h5>Up-to-date</h5>
+              </div>
+              <div class="col-6 mt-3 mb-3">
+                  <img class="img-fluid img-responsive about-imgs m-2" src="{% static 'images/car.svg' %}" alt="car" />
+                  <h5>Top categories</h5>
+              </div>
+          </div>
+        </div>
+  
+  
+        <div class="col-12 col-md-6 about-text">
+  
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#Thome" type="button" 
+              role="tab" aria-controls="home" aria-selected="true">About us</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" 
+              data-bs-target="#Tprofile" type="button" role="tab" 
+              aria-controls="profile" aria-selected="false">Driving School</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Tcontact" type="button" 
+              role="tab" aria-controls="contact" aria-selected="false">PUC</button>
+            </li>
+          </ul>
+          
+          
+          
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="Thome" role="tabpanel" aria-labelledby="home-tab">
+              We are on mission to provide you the best services related to driving schools, chauffeur, Legal paper works and many more. <br>
+              <a href="{% url 'chauffer' %}" class="about-link" rel="noopener noreferrer">Chauffeur</a> :-DCS brings you the most elite Professional chauffeur services all around India. Comfort is something that is never compromised when travelling in our Chauffeur driven luxury cars.
+              We provide you with the Finest chauffeurs that has everything it takes to deliver a top-class service.
+            </div>
+            <div class="tab-pane fade" id="Tprofile" role="tabpanel" aria-labelledby="profile-tab">
+              <a href="{% url 'school' %}" class="about-link" rel="noopener noreferrer">Driving School</a>:- Learning to drive successfully is important and  requires professional training, as driving is not just about you, its about the safety of the others on the roads as well. How many of us can confidently claim that they can clear a traffic signs test? The fact is very few. We go beyond teaching just the effortless use of controls of the car. We believe in teaching our learners to respect other driver’s rights while understanding the responsibilities of a driver.
+            </div>
+            <div class="tab-pane fade" id="Tcontact" role="tabpanel" aria-labelledby="contact-tab">
+              <a href="{% url 'puc' %}" class="about-link" rel="noopener noreferrer">PUC</a>:- Pollution Under Control (PUC) Certificate. The PUC test assesses the emission of a vehicle and checks if it follows the standard pollution regulation. In India, a valid driving license, insurance coverage and a Pollution Under Control Certificate are legal mandatory requirements for a car.<br/>
+            Insurance:-We are on a mission to provide you the best insurance available at the best prices for you.
+            </div>
+          </div>
+  
+  
+        </div>
+      </div>
+  
+  
+      <div class="row mt-5 title-banner" id='services'>
+        <div class="col-12 text-center mt-5 mb-5 align-items-center">
+          <h1 class="mt-3">Our Services</h1>
+        </div>
+      </div>
+
+      <div class="row text-center mt-5 align-items-center" >
+        <div class="col-12 col-sm-3 offset-md-1 me-md-5 mt-4">
+          <a class='nav-link' href="{% url 'school' %}"> 
+            <div class="card card-x">
+              <img src="{% static 'images/undraw_fast_car_p4cu (1).svg' %}"  class="card-img-top " alt="undraw_fast_car_p4cu (1).svg">
+              <div class="card-body">
+                <h5 class="card-title-x">Driving School</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-12 col-sm-3 me-md-5 mt-4 ">
+          <a class='nav-link' href="{% url 'puc'%}"> 
+            <div class="card card-x">
+              <img src="{% static 'images/undraw_Order_ride_re_372k (1).svg' %}" class="card-img-top" alt="undraw_subway_7vh7.svg">
+              <div class="card-body">
+                <h5 class="card-title-x">PUC</h5>
+              </div>
+            </div>
+          </a>
+          
+        </div>
+        <div class="col-12 col-sm-3 mt-4">
+          <a class='nav-link' href="{% url 'chauffer' %}"> 
+            <div class="card card-x">
+              <img src="{% static 'images/undraw_electric_car_b7hl (1).svg' %}" class="card-img-top" alt="undraw_electric_car_b7hl (1).svg">
+              <div class="card-body">
+                <h5 class="card-title-x">Chauffeur</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-3 offset-md-1 mt-4 me-md-5">
+          <a class='nav-link' href="{% url 'soon' %}"> 
+            <div class="card card-x">
+              <img src="{% static 'images/undraw_subway_7vh7.svg' %}" class="card-img-top" alt="undraw_Order_ride_re_372k (1).svg">
+              <div class="card-body">
+                <h5 class="card-title-x">RTO</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+        <div class="col-12 col-sm-3 mt-4 me-md-5">
+          <a class='nav-link' href="{% url 'soon'%}"> 
+            <div class="card card-x">
+              <img src="{% static 'images/undraw_certification_aif8.svg' %}" class="card-img-top" alt="undraw_certification_aif8.svg">
+              <div class="card-body">
+                <h5 class="card-title-x">Insurance</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-12 col-sm-3 mt-4">
+          <a class='nav-link' href="{% url 'soon'%}"> 
+            <div class="card card-x">
+              <img src="{% static 'images/undraw_Documents_re_isxv (1).svg' %}" class="card-img-top" alt="undraw_Documents_re_isxv (1).svg">
+              <div class="card-body">
+                <h5 class="card-title-x">SVI</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+
+
+      <!-- contact -->
+      <div class="row title-banner mt-5" id='contact'>
+        <div class="col-12 text-center mt-5 mb-5 align-items-center ">
+          <h1 class="mt-3">Contact Us</h1>
+          <h2 class='mb-3'>Feel free to keep in touch with us!</h2>
+        </div>
+      </div>
+  
+      <div class="row contact-container mt-2" >
+        <div class="col-12 col-md-4 offset-md-1 mt-4">
+          <ul class="list-group" id="contact-list">
+            <li class='list-group-item'>
+              <img
+                style="height: 49px; width: 49px"
+                src="{% static 'images/phone.svg' %}"
+                alt="phone.svg"
+              /> +918519082411
+            </li>
+            <li class='list-group-item'>
+              <img
+                style="height: 49px; width: 49px"
+                src="{% static 'images/email.svg' %}"
+                alt="email.svg"
+              /> spotmobility@gmail.com
+            </li>
+            <li class='list-group-item'>
+              <img
+                style="height: 49px; width: 49px"
+                src="{% static 'images/location.svg' %}"
+                alt="location.svg"
+              /> 32 ahata Sikandar kuli, Bhopal, 462008
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-6 mt-4">
+          <form method="post" action="#">
+            {% csrf_token %}
+            <div class="form-floating mt-4 mb-2">
+              <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Your Full Name">
+              <label for="floatingInput">Name</label>
+            </div>
+
+            
+            <div class="form-floating mb-2 ">
+              <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            
+            <div class="form-floating mb-2">
+              <input name="phone" type="tel" class="form-control" id="floatingPassword" placeholder="Mobile Number">
+              <label for="floatingPassword">Mobile Number</label>
+            </div>
+            
+            <div class="form-floating mb-2">
+              <textarea name="comment" class="form-control" placeholder="Leave your message here" id="floatingTextarea2" style="height: 100px"></textarea>
+              <label for="floatingTextarea2">Comments</label>
+            </div>
+          
+            <button name='ContactForm' class="btn btn-lg btn-outline-primary mt-3 mb-4" type="submit">Send Message</button>
+          </form>
+
+        </div>
+      </div>
+
+
+      <div class="row mt-4" id="partner">
+        <div class="col-5 offset-sm-1">
+          <section class="display-6 join-post">
+            <p>Join our team and become a valuable member of our company.</p>
+          </section>
+        </div>
+        <div class="col-6 text-center mt-5">
+          <section class=''>
+            <a href="{% url 'partner' %}" class='btn btn-lg btn-outline-primary join-btn'>
+              Join us
+            </a>
+          </section>
+        </div>
+      </div>
+
+      <div class="row  footer ">
+        <div class="col-12 col-sm-4 text-center align-items-center">
+          <h3 class='ms-5 text-white'>
+            <b>
+              DCS
+            </b>
+          </h3>
+          <ul class="nav ms-sm-5">
+            <li>
+              <a  class="nav-link" rel="nofollow" href="https://m.facebook.com/riditdrivingschool/?ref=bookmarks"
+                ><i class="fa fa-facebook-square"></i
+              ></a>
+            </li>
+            <li>
+              <a class="nav-link" rel="nofollow" href="https://mobile.twitter.com/_myridit_"
+                ><i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <!-- <a class="nav-link" rel="nofollow" href="https://www.linkedin.com/company/spotrental"> -->
+              <a class="nav-link" rel="nofollow" href="{% url 'soon' %}">
+                <i class="fa fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a class="nav-link" rel="nofollow" href="https://instagram.com/my_ridit?igshid=ygj7biwh1ykx">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-sm-4">
+          <h4 class='ms-4'>Our Services</h4>
+          <ul>
+            <li> <a href="{% url 'faq'%}">FAQs</a></li>
+            <li> <a href="{% url 'partner' %}">Become our Partner</a> </li>
+            <li> <a href="{% url 'school' %}">Driving School</a> </li>
+            <li> <a href="{% url 'chauffer'%}">Chauffeurs</a> </li>
+            <li> <a href="{% url 'puc'%}">PUC & RTO </a> </li>
+            <li> <a href="{% url 'soon'%}">Insurance </a> </li>
+            <li> <a href="{% url 'soon'%}">SVI & Traffic rules</a></li>
+            <li> <a href="{% url 'soon'%}">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-sm-4">
+          <h4>Useful Links</h4>
+          <ul>
+            <li> <a href="#home">Home</a> </li>
+            <li> <a href="#about">About</a> </li>
+            <li> <a href="#services">Services</a> </li>
+            <li> <a href="#contact">Contact</a> </li>
+          </ul>
+        </div>
+        
+        <div class="col-12 mt-4 mb-4 text-center text-white">
+          Copyright © 2021 S19 Mobility Pvt Ltd.
+        </div>
+      </div>
+  
+    <!-- main container -->
+    </div>
+  
+{% endblock content %}

@@ -1,0 +1,26 @@
+
+{% extends "ridit/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6 offset-sm-3 mt-5">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="navbar-brand mb-4"> Join Today </legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group mt-3 mb-3 text-center">
+                        <button class="btn btn-success text-white" type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="mt-2 mb-5">
+                    <small class="text-muted">
+                        Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
