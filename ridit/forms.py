@@ -4,7 +4,7 @@ from .models import Partner
 from .models import Service
 from django.contrib.admin import widgets  
 from .models import Chauffer
-from .models import Puc
+from .models import Puc,Insurance
 
 class DriveForm(forms.ModelForm):
 
@@ -20,14 +20,14 @@ class DriveForm(forms.ModelForm):
             'days' : 'Duration',
             'city' : 'City'
         }
-        #widgets = {'uuid': forms.HiddenInput()}
+        widgets = {'date':widgets.AdminDateWidget(attrs={'placeholder':'YYYY-MM-DD'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super(DriveForm,self).__init__(*args, **kwargs)
         self.fields['gender'].empty_label = "Select"
         self.fields['city'].empty_label = "Select"
         self.fields['vehicle'].empty_label = "Select"
-        self.fields['date'].widget = widgets.AdminDateWidget()
 
 class PartnerForm(forms.ModelForm):
     #service = forms.ModelMultipleChoiceField(queryset=Service.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
@@ -60,13 +60,10 @@ class ChaufferForm(forms.ModelForm):
             'contact':'Mobile No',
             'address' : 'Address',
             'date' : 'Starting Date',
-            'days' : 'Enter no of days',
+            'days' : 'Enter no of days (1-30)',
             'pincode' : 'Pincode'
         }
-
-    def __init__(self, *args, **kwargs):
-        super(ChaufferForm,self).__init__(*args, **kwargs)
-        self.fields['date'].widget = widgets.AdminDateWidget()
+        widgets = {'date':widgets.AdminDateWidget(attrs={'placeholder':'YYYY-MM-DD'})}
 
 class PucForm(forms.ModelForm):
 
@@ -81,8 +78,28 @@ class PucForm(forms.ModelForm):
             'exp_date' : 'Expiry Date',
             'city' : 'City'
         }
+        widgets = {'exp_date':widgets.AdminDateWidget(attrs={'placeholder':'YYYY-MM-DD'})}
 
     def __init__(self, *args, **kwargs):
         super(PucForm,self).__init__(*args, **kwargs)
         self.fields['city'].empty_label = "Select"
-        self.fields['exp_date'].widget = widgets.AdminDateWidget()
+
+
+class InsuranceForm(forms.ModelForm):
+
+    class Meta:
+        model = Insurance
+        fields = ('name','contact','city','exp_date','ins_type')
+        labels = {
+            'name':'Full Name',
+            'contact':'Mobile No',
+            'city' : 'City',
+            'exp_date' : 'Previous Insurance Expiry Date',
+            'ins_type' : 'Type of Insurance',
+        }
+        widgets = {'exp_date':widgets.AdminDateWidget(attrs={'placeholder':'YYYY-MM-DD'})}
+
+    def __init__(self, *args, **kwargs):
+        super(InsuranceForm,self).__init__(*args, **kwargs)
+        self.fields['city'].empty_label = "Select"
+        self.fields['ins_type'].empty_label = "Select"

@@ -2,13 +2,16 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control,never_cache
 from .models import School,Contact
-from .models import Partner
+from .models import Partner,Insurance
 from .models import Puc,Chauffer
 from .forms import DriveForm
 from .forms import PartnerForm
 from .forms import ChaufferForm
-from .forms import PucForm
+from .forms import PucForm,InsuranceForm
+import time
+
 # Create your views here.
 def home(request):
     if request.method == 'POST' and 'ContactForm' in request.POST:
@@ -23,11 +26,19 @@ def home(request):
         contact.comment = comment
         contact.phone = phone
         contact.save()
+
         return render(request,'ridit/success.html')
+    '''if request.method == 'POST' and 'ChatBotForm' in request.POST:
+        cb = ChatBot()
+        msg = request.POST.get('msg')
+
+        cb.msg = msg
+        cb.save()'''
 	
     return render(request,'ridit/home.html')
 	
 @login_required
+@never_cache
 def school(request, id=0):
     if request.method == "GET":
         if id == 0:
@@ -51,6 +62,7 @@ def school(request, id=0):
             return render(request, "ridit/school.html", {'form': form})
 
 def success(request):
+    time.sleep(10)
     return render(request,"ridit/success.html")
 
 def ch(request):
@@ -167,3 +179,27 @@ def LicenseFAQ(request):
 
 def comming_soon(request):
     return render(request,"ridit/soon.html")
+
+@login_required
+@never_cache
+def insurance(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = InsuranceForm()
+        else:
+            employee = Insurance.objects.get(pk=id)
+            form = InsuranceForm(instance=employee)
+        return render(request, "ridit/insurance.html", {'form': form})
+    else:
+        if id == 0:
+            form = InsuranceForm(request.POST)
+        else:
+            employee = Insurance.objects.get(pk=id)
+            form = InsuranceForm(request.POST,instance= employee)
+        if form.is_valid():
+            form.save()
+            # messages.success(request, 'Your request is submitted successfully')
+            return redirect('/success')
+        else:
+            # messages.error(request,'error')
+            return render(request, "ridit/insurance.html", {'form': form})
