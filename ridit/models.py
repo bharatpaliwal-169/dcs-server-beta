@@ -33,7 +33,7 @@ class School(models.Model):
   email = models.EmailField(max_length=200,validators=[validateEmail])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
   mobile = models.CharField(max_length=10,validators=[phone_regex])
-  VEHICLE = (('2w','2 wheeler'),('3w','3 wheeler'),('4w','4 wheeler'),('4cw','4 Wheeler Commercials'),('hw','Heavy Wheeler'))
+  VEHICLE = (('2w','2 wheeler'),('3w','3 wheeler'),('4w','4 wheeler'))
   vehicle = models.CharField(max_length=20,choices=VEHICLE)
   CHOICE = (('0','Male'),('1','Female'))
   gender = models.CharField(max_length=10,choices = CHOICE)
