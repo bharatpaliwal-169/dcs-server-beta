@@ -82,8 +82,8 @@ body{
 
 
 .fa{
-  font-size: 1.75rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.25rem;
   color: #f4f4f4;
 }
 .fa-facebook-square:hover{
@@ -92,24 +92,24 @@ body{
   border-radius:20%;
   /* border: 1px solid white; */
   transition: background-color .5s;
-  font-size: 2rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.25rem;
 }
 .fa-twitter:hover{
   background-color: #1da1f2;
   color: #fff;
   border-radius:20%;
   transition: background-color .5s;
-  font-size: 2rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.25rem;
 }
 .fa-linkedin:hover{
   background-color: #0077b5;
   color: #fff;
   border-radius:20%;
   transition: background-color .5s;
-  font-size: 2rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.25rem;
 }
 
 .fa-instagram:hover{
@@ -117,8 +117,8 @@ body{
   color: #fff;
   border-radius:20%;
   transition: background-color .5s;
-  font-size: 2rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 0.25rem;
 }
 
 .tab-pane{
@@ -162,7 +162,7 @@ body{
   font-family: 'Roboto',  sans-serif;
   font-weight: 500;
   color: #012970;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .footer a{

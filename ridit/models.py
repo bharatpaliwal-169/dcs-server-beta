@@ -21,14 +21,14 @@ class Contact(models.Model):
   name = models.CharField(max_length=100)
   email = models.EmailField()
   comment = models.TextField(max_length=500)
-  phone = models.CharField(max_length=10)
+  phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
+  phone = models.CharField(max_length=10,validators = [phone_regex] )
 
   def __str__(self):
     return self.name
 
-
 class School(models.Model):
-  #uuid=models.CharField(unique=True,max_length=100)
+
   name = models.CharField(max_length=200)
   email = models.EmailField(max_length=200,validators=[validateEmail])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
@@ -46,6 +46,7 @@ class School(models.Model):
 
 
 class Service(models.Model):
+  
   id = models.IntegerField(primary_key=True, unique = True)
   title = models.CharField(max_length=50,unique=True)
 
@@ -53,6 +54,7 @@ class Service(models.Model):
     return self.title
 
 class Partner(models.Model):
+  
   name = models.CharField(max_length=200)
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
   contact = models.CharField(max_length=10,validators=[phone_regex])
@@ -127,4 +129,15 @@ class Puc(models.Model):
   def save(self, *args, **kwargs):
     self.price = self.get_price
     super(Puc, self).save(*args, **kwargs)
-  
+
+class Insurance(models.Model):
+  # name_regex = RegexValidator(regex=r'^[a-zA-Z]*$', message="Only Alphabets are allowed")
+  name = models.CharField(max_length=200)
+  phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
+  contact = models.CharField(max_length=10,validators=[phone_regex])
+  city = models.ForeignKey(City,on_delete=models.CASCADE)
+  exp_date = models.DateField()
+  TYPE=(('li','Life Insurance'),('mi','Motor Insurance'),('hi','Health Insurance'),('ti','Travel Insurance'),('pi','Property Insurance'),('mo','Mobile Insurance'),('ci','Cycle Insurance'),('bi','Bite-size Insurance'))
+  ins_type = models.CharField(max_length=30,choices=TYPE)
+  def __str__(self):
+      return self.name

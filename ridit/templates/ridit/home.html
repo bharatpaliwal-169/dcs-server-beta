@@ -42,7 +42,13 @@
           <h1 class='about-head mb-2 mt-5' >
             About Us
           </h1>
-            
+          <p>
+            <i>
+              "
+              We are on mission to provide you the best services related to driving schools, chauffeur, Legal paper works and many more.
+              "
+            </i>
+          </p>
         </div>
   
         <div class="col-12 col-md-6">
@@ -51,13 +57,7 @@
               <h4>
                 We work with top rental vehicles providers
               </h4>
-              <p>
-                <i>
-                  "
-                  We are on mission to provide you the best services related to driving schools, chauffeur, Legal paper works and many more.
-                  "
-                </i>
-              </p>
+              
             </div>
             
             <div class="col-6 mt-3 mb-3"> 
@@ -230,19 +230,20 @@
           <form method="post" action="#">
             {% csrf_token %}
             <div class="form-floating mt-4 mb-2">
-              <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Your Full Name">
+              <input required name="name" type="text" class="form-control" id="floatingInput" placeholder="Your Full Name">
               <label for="floatingInput">Name</label>
             </div>
 
             
             <div class="form-floating mb-2 ">
-              <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input required name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
               <label for="floatingInput">Email address</label>
             </div>
             
             <div class="form-floating mb-2">
-              <input name="phone" type="tel" class="form-control" id="floatingPassword" placeholder="Mobile Number">
-              <label for="floatingPassword">Mobile Number</label>
+              <input name="phone" type="tel" class="form-control" id="floatingPassword" 
+                placeholder="Mobile Number" pattern="^\d{10}$" maxlength="10" required>
+              <label for="">Mobile Number (10-digits) </label>
             </div>
             
             <div class="form-floating mb-2">
@@ -272,14 +273,14 @@
         </div>
       </div>
 
-      <div class="row  footer ">
-        <div class="col-12 col-sm-4 text-center align-items-center">
-          <h3 class='ms-5 text-white'>
-            <b>
-              DCS
-            </b>
-          </h3>
-          <ul class="nav ms-sm-5">
+      <div class="row footer">
+        <div class="col-12 col-sm-5  text-white offset-sm-1">
+          <h4 class='mt-3 mb-3 '>DCS- Driven Chauffeurs Service</h4>
+
+          <p>  <strong>Find us :</strong>  32 ahata Sikandar kuli, Bhopal, 462008</p>
+          <p> <strong>Mail to :</strong> spotmobility@gmail.com</p>
+          <p><strong>Call us :</strong> +918519082411</p>
+          <ul class="nav">
             <li>
               <a  class="nav-link" rel="nofollow" href="https://m.facebook.com/riditdrivingschool/?ref=bookmarks"
                 ><i class="fa fa-facebook-square"></i
@@ -291,7 +292,6 @@
               </a>
             </li>
             <li>
-              <!-- <a class="nav-link" rel="nofollow" href="https://www.linkedin.com/company/spotrental"> -->
               <a class="nav-link" rel="nofollow" href="{% url 'soon' %}">
                 <i class="fa fa-linkedin"></i
               ></a>
@@ -302,33 +302,38 @@
               </a>
             </li>
           </ul>
+        
         </div>
-  
-        <div class="col-6 col-sm-4">
-          <h4 class='ms-4'>Our Services</h4>
+
+        <div class="col-6 col-sm-3">
+          <h4 class="mt-3 mb-3">
+            What we Provide
+          </h4>
           <ul>
-            <li> <a href="{% url 'faq'%}">FAQs</a></li>
             <li> <a href="{% url 'partner' %}">Become our Partner</a> </li>
             <li> <a href="{% url 'school' %}">Driving School</a> </li>
             <li> <a href="{% url 'chauffer'%}">Chauffeurs</a> </li>
             <li> <a href="{% url 'puc'%}">PUC & RTO </a> </li>
             <li> <a href="{% url 'soon'%}">Insurance </a> </li>
             <li> <a href="{% url 'soon'%}">SVI & Traffic rules</a></li>
-            <li> <a href="{% url 'soon'%}">Terms & Conditions</a></li>
           </ul>
         </div>
-        <div class="col-6 col-sm-4">
-          <h4>Useful Links</h4>
+
+        <div class="col-6 col-sm-3">
+          <h4 class='mt-3 mb-3'>Useful Links</h4>
           <ul>
+            <li> <a href="{% url 'faq'%}">FAQs</a></li>
             <li> <a href="#home">Home</a> </li>
             <li> <a href="#about">About</a> </li>
             <li> <a href="#services">Services</a> </li>
             <li> <a href="#contact">Contact</a> </li>
+            <li> <a href="{% url 'soon'%}">Terms & Conditions</a></li>
           </ul>
         </div>
-        
-        <div class="col-12 mt-4 mb-4 text-center text-white">
-          Copyright © 2021 S19 Mobility Pvt Ltd.
+
+
+        <div class="col-12 text-white text-center mt-4">
+          <p>Copyright © 2021 S19 Mobility Pvt Ltd.</p>
         </div>
       </div>
   
