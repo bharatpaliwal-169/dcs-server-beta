@@ -4,7 +4,7 @@ from .models import Partner
 from .models import Service
 from django.contrib.admin import widgets  
 from .models import Chauffer
-from .models import Puc,Insurance
+from .models import Puc,Insurance,Rto
 
 class DriveForm(forms.ModelForm):
 
@@ -47,6 +47,7 @@ class PartnerForm(forms.ModelForm):
         super(PartnerForm,self).__init__(*args,**kwargs)
         self.fields['service'].empty_label="Select"
         self.fields['city'].empty_label = "Select"
+        self.fields['query'].required = False
 
 
 class ChaufferForm(forms.ModelForm):
@@ -103,3 +104,23 @@ class InsuranceForm(forms.ModelForm):
         super(InsuranceForm,self).__init__(*args, **kwargs)
         self.fields['city'].empty_label = "Select"
         self.fields['ins_type'].empty_label = "Select"
+
+class RtoForm(forms.ModelForm):
+
+    class Meta:
+        model = Rto
+        fields = ('name','contact','city','serv','others')
+        labels = {
+            'name':'Full Name',
+            'contact':'Mobile No',
+            'city' : 'City',
+            'serv' : 'Services',
+            'others' : 'Write your queries here',
+        }
+        widgets = {'others': forms.Textarea(attrs={'placeholder': 'If you want to specify any other service, then please mention here'})}
+
+    def __init__(self, *args, **kwargs):
+        super(RtoForm,self).__init__(*args, **kwargs)
+        self.fields['city'].empty_label = "Select"
+        self.fields['serv'].empty_label = "Select"
+        self.fields['others'].required = False

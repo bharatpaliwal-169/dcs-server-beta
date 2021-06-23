@@ -1,15 +1,15 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control,never_cache
 from .models import School,Contact
 from .models import Partner,Insurance
-from .models import Puc,Chauffer
+from .models import Puc,Chauffer,Rto
 from .forms import DriveForm
 from .forms import PartnerForm
 from .forms import ChaufferForm
-from .forms import PucForm,InsuranceForm
+from .forms import PucForm,InsuranceForm,RtoForm
 import time
 
 # Create your views here.
@@ -62,7 +62,7 @@ def school(request, id=0):
             return render(request, "ridit/school.html", {'form': form})
 
 def success(request):
-    time.sleep(10)
+    #if user is logged in then show the success page
     return render(request,"ridit/success.html")
 
 def ch(request):
@@ -203,3 +203,27 @@ def insurance(request, id=0):
         else:
             # messages.error(request,'error')
             return render(request, "ridit/insurance.html", {'form': form})
+
+@login_required
+@never_cache
+def rto(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = RtoForm()
+        else:
+            employee = Rto.objects.get(pk=id)
+            form = RtoForm(instance=employee)
+        return render(request, "ridit/rto.html", {'form': form})
+    else:
+        if id == 0:
+            form = RtoForm(request.POST)
+        else:
+            employee = Rto.objects.get(pk=id)
+            form = RtoForm(request.POST,instance= employee)
+        if form.is_valid():
+            form.save()
+            # messages.success(request, 'Your request is submitted successfully')
+            return redirect('/success')
+        else:
+            # messages.error(request,'error')
+            return render(request, "ridit/rto.html", {'form': form})

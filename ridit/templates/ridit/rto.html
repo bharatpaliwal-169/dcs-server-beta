@@ -1,0 +1,36 @@
+{% extends "ridit/base1.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<title>Rto</title>
+<h1>RTO</h1>
+
+<p class="lead font-italic">Think safe. Drive safe. Your key to hassle free drives.</p>
+                <hr class="my-4">
+
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.name|as_crispy_field}}
+    {{form.contact|as_crispy_field}}
+    <div class="row">
+        <div class="col-12 col-md-5">
+            {{form.city|as_crispy_field}}
+        </div>
+        <div class="col-12 col-md-7">
+            {{form.serv|as_crispy_field}}
+        </div>
+    </div>
+    {{form.others|as_crispy_field}}
+    <div class="row mt-4 mb-4">
+        <div class="col-12 col-md-6 offset-md-3">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" >
+                Submit
+                <i class="fas fa-id-card"></i>
+            </button>
+        </div>
+        
+    </div>
+
+</form>
+{% endblock content %}

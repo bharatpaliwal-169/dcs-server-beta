@@ -5,7 +5,7 @@ from .models import City
 from .models import Partner
 from .models import Service
 from .models import Chauffer
-from .models import Puc,Insurance
+from .models import Puc,Insurance,Rto
 # Register your models here.
 
 admin.site.register(School)
@@ -16,3 +16,4 @@ admin.site.register(Chauffer)
 admin.site.register(Puc)
 admin.site.register(Contact)
 admin.site.register(Insurance)
+admin.site.register(Rto)

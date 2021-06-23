@@ -15,4 +15,5 @@ urlpatterns = [
   path('pucfaq/',views.pucFAQ,name='pucFAQ'),
   path('chauffeurfaq/',views.chauffeurFAQ,name='chauffeurFAQ'),
   path('licensefaq/',views.LicenseFAQ,name='licenseFAQ'),
+  # path('rto/',views.rto,name='rto'),
 ]

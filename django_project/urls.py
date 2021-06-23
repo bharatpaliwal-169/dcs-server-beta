@@ -21,6 +21,7 @@ urlpatterns = [
     path('ch/', ridit_views.ch, name='ch'),
     path('success/', ridit_views.ch, name='success'),
     path('insurance/', ridit_views.insurance, name='insurance'),
+    path('rto/', ridit_views.rto, name='rto'),
     path('jsi18n', JavaScriptCatalog.as_view(), name='javascript-catalog'),#for datepicker functionality in forms
 ]
 
