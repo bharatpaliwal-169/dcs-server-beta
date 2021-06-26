@@ -19,7 +19,7 @@ def validateEmail(value):
     print("good email")
 
 class Contact(models.Model):
-  #name_regex = RegexValidator(r'^[A-Za-z]*$','Only Alphabets are allowed')
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=100)
   email = models.EmailField()
   comment = models.TextField(max_length=500)
@@ -31,7 +31,7 @@ class Contact(models.Model):
 
 class School(models.Model):
   eid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  name_regex = RegexValidator(regex=r'^[A-Za-z]*$',message="Only Alphabets are allowed")
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=200,validators=[name_regex])
   email = models.EmailField(max_length=200,validators=[validateEmail])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
@@ -59,7 +59,7 @@ class Service(models.Model):
 
 class Partner(models.Model):
   eid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  name_regex = RegexValidator(regex=r'^[A-Za-z]*$',message="Only Alphabets are allowed")
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=200,validators=[name_regex])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
   contact = models.CharField(max_length=10,validators=[phone_regex])
@@ -77,7 +77,7 @@ def validate_range(value):
 
 class Chauffer(models.Model):
   eid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  name_regex = RegexValidator(regex=r'^[A-Za-z]*$',message="Only Alphabets are allowed")
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=200,validators=[name_regex])
   email = models.EmailField(max_length=200)
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
@@ -107,7 +107,7 @@ class Chauffer(models.Model):
 
 class Puc(models.Model):
   eid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  name_regex = RegexValidator(regex=r'^[A-Za-z]*$',message="Only Alphabets are allowed")
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=200,validators=[name_regex])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
   contact = models.CharField(max_length=10,validators=[phone_regex])
@@ -142,7 +142,7 @@ class Puc(models.Model):
 
 class Insurance(models.Model):
   eid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  name_regex = RegexValidator(regex=r'^[A-Za-z]*$',message="Only Alphabets are allowed")
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=200,validators=[name_regex])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
   contact = models.CharField(max_length=10,validators=[phone_regex])
@@ -155,7 +155,7 @@ class Insurance(models.Model):
 
 class Rto(models.Model):
   eid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  name_regex = RegexValidator(regex=r'^[A-Za-z]*$',message="Only Alphabets are allowed")
+  name_regex = RegexValidator(regex=r'^[A-Za-z\s]*$',message="Only Alphabets and spaces are allowed")
   name = models.CharField(max_length=200,validators=[name_regex])
   phone_regex = RegexValidator(regex=r'^\+?1?\d{10}$', message="Phone number must be of 10 digits")
   contact = models.CharField(max_length=10,validators=[phone_regex])
