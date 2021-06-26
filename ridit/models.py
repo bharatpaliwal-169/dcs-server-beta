@@ -113,7 +113,7 @@ class Puc(models.Model):
   contact = models.CharField(max_length=10,validators=[phone_regex])
   TYPE = (('2w','2 wheeler'),('3w','3 wheeler'),('4w','4 wheeler'),('4cw','4 Wheeler Commercials'),('hw','Heavy Wheeler'))
   vehicle_type= models.CharField(max_length=20,choices=TYPE)
-  vehicle_no = models.CharField(max_length=20)
+  vehicle_no = models.CharField(max_length=10)
   exp_date = models.DateField()
   city = models.ForeignKey(City,on_delete=models.CASCADE)
   price=models.IntegerField()
